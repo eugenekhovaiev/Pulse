@@ -1,4 +1,34 @@
-@media (max-width: 1199px) {}
+@media (max-width: 1199px) {
+    .carousel {
+        .tns-outer {
+            width: 700px;
+            margin: 0 auto;
+        }
+
+        .carousel__inner {
+            img {
+                // width: 700px;
+                width: 100%;
+            }
+        }
+
+        .prev, .next {
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0px;
+       
+            img {
+                width: 31px;
+                height: 50px;
+            }
+        }
+        
+        .next {
+            left: auto;
+            right: 0px;
+        }
+    }
+}
 
 @media (max-width: 991px) {
     .container {
@@ -11,6 +41,18 @@
 
     .benefits__item {
         width: 216px;
+    }
+
+    .carousel {
+        .tns-outer {
+            width: 600px;
+        }
+    }
+
+    .catalog {
+        &__tab {
+            width: 205px;
+        }
     }
 }
 
@@ -81,6 +123,63 @@
 
         &__icon {
             margin-bottom: 20px;
+        }
+    }
+
+    .consultation {
+        padding: 70px 0 75px;
+        min-height: auto;
+        &__descr {
+            font-size: 18px;
+            line-height: 28px;
+        }
+    }
+
+    .title_left {
+        font-size: 34px;
+        line-height: 51px;
+    }
+
+    .feed-form {
+        width: 290px;
+    }
+
+    .button_submit {
+        height: 50px;
+    }
+
+    .carousel {
+        .tns-outer {
+            width: 400px;
+        }
+
+        .tns-item {
+            height: 340px;
+        }
+
+        .prev, .next {
+    
+            img {
+                width: 25px;
+                height: 40px;
+            }
+        }
+    }
+
+
+    .catalog {
+        padding-bottom: 50px;
+        .title {
+            margin-bottom: 50px;
+        }
+
+        &__tab {
+            width: 150px;
+            font-size: 15px;
+        }
+        
+        &__tabs {
+            margin-bottom: 40px;
         }
     }
 }
@@ -164,13 +263,106 @@
     }
 
     .benefits {
-        &__header {
-            max-width: 300px;
-            margin: 0 auto 55px;
-        }
-
         &__item {
             width: 271px;
+        }
+    }
+    
+    .title {
+        max-width: 300px;
+        margin: 0 auto 55px;
+        font-size: 26px;
+    }
+
+    .consultation {
+        padding: 60px 0 60px;
+
+        &__descr {
+            margin-bottom: 25px;
+            font-size: 16px;
+            line-height: 18px;
+            text-align: center;
+        }
+    }
+
+    .title_left {
+        margin-bottom: 30px;
+        font-size: 20px;
+        line-height: 30px;
+        text-align: center;
+    }
+
+    .feed-form {
+        margin: 0 auto;
+        align-items: center;
+        // width: auto;
+        width: 300px;
+        input {
+            width: 100%;
+        }
+    }
+
+    .carousel {
+        padding: 33px 0 73px;
+        .tns-outer {
+            width: 300px;
+        }
+
+        .tns-item {
+            height: 340px;
+        }
+
+        .prev, .next {
+            top: auto;
+            bottom: -20px;
+            left: 30%;
+            img {
+                width: 20px;
+                height: 32px;
+            }
+        }
+
+        .next {
+            left: auto;
+            right: 30%;
+        }
+    }
+
+
+    .catalog {
+        padding-bottom: 50px;
+        .title {
+            margin-bottom: 25px;
+        }
+
+        &__tab {
+            margin-bottom: 8px;
+            width: 180px;
+            height: 39px;
+            // font-size: 11px;
+            line-height: 39px;
+
+            &:nth-child(1) {
+                transform: skewX(-20deg) translateX(17px);  
+            }
+
+            &:nth-child(3) {
+                transform: skewX(-20deg) translateX(-17px);  
+            }
+
+            &:hover {
+                box-shadow: 3px 3px 8px $main-color;
+            }
+
+            &_active {
+                line-height: 43px;
+            }
+        }
+        
+        &__tabs {
+            margin-bottom: 40px;
+            flex-direction: column;
+            align-items: center;
         }
     }
 }
