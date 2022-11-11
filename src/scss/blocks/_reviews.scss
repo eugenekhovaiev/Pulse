@@ -1,0 +1,44 @@
+.reviews {
+}
+.review {
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+		// .review__photo
+		&__photo {
+            display: block;
+            width: 169px;
+            margin-right: 65px;
+		}
+		// .review__text
+		&__text {
+            width: 680px;
+		}
+		// .review__name
+		&__name {
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 18px;
+            color: #0D0D0D;
+		}
+		// .review__experience
+		&__experience {
+            margin-bottom: 10px;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 22px;
+            color: #646464;
+		}
+		// .review__comment
+		&__comment {
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 24px;
+            color: #0D0D0D;
+
+            p {
+                margin-bottom: 10px;
+            }
+	}
+}
