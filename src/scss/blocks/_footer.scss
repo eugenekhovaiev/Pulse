@@ -56,8 +56,15 @@
         border: 2px solid #FFFFFF;
         border-radius: 50%;
 
+        transition: 0.1s all;
+
         img {
             height: 27px;
+        }
+
+        &:hover {
+            box-shadow: 0px 0px 10px #555;
+            transform: translateY(-2px);
         }
     }
 }
