@@ -1,13 +1,17 @@
 .footer {
+    // min-height: 630px;
     height: 630px;
     position: relative;
+    // overflow: hidden;
+    
     // .footer__info
     &__info {
         padding: 50px 68px 60px;
         position: absolute;
         top: 0;
-        left: 50%;
-        transform: translateX(-50%);
+        right: 50%;
+        transform: translateX(50%);
+        transition: 1.1666s all;
 
         width: 460px;
         height: 270px;

@@ -7,7 +7,6 @@
 
         .carousel__inner {
             img {
-                // width: 700px;
                 width: 100%;
             }
         }
@@ -55,6 +54,7 @@
 
     .promo__icons {
         width: 382px;
+        width: 500px;
     }
 
     .benefits__item {
@@ -478,5 +478,24 @@
 
     .footer {
         height: 530px;
+    }
+
+    .modal {
+        padding: 38px 16px 40px;
+        width: 300px;
+
+        &__subtitle {
+            font-size: 16px;
+        }
+
+        &__close {
+            top: 8px;
+            right: 6px;
+            font-size: 37px;
+        }
+    }
+
+    .feed-form_modal {
+        width: 100%;
     }
 }
