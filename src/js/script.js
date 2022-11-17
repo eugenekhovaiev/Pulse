@@ -56,6 +56,7 @@ document.querySelector('.next').addEventListener('click', function () {
     slider.goTo('next');
 });
 
+
 // Tabs, modals and form validation
 $(document).ready(function(){
     $('ul.catalog__tabs').on('click', 'li:not(.catalog__tab_active)', function() {
@@ -141,11 +142,27 @@ $(document).ready(function(){
         if (n === error.length) {
             $(this).find('input').val('');
             $('#consultation, #order').fadeOut();
-            $('.overlay').fadeIn();
-            $('#thanks').fadeIn();
+            $('.overlay').fadeIn('slow');
+            $('#thanks').fadeIn('slow');
             $('form').trigger('reset');
         }
 
+        return false;
+    });
+
+
+    // Smooth scroll pageup
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 1600) {
+            $('.pageup').fadeIn();
+        } else {
+            $('.pageup').fadeOut();
+        };
+    });
+
+    $("a[href=#up]").click(function(){
+        const _href = $(this).attr("href");
+        $("html, body").animate({scrollTop: $(_href).offset().top+"px"});
         return false;
     });
 });
