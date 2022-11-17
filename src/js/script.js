@@ -17,6 +17,8 @@
 //     });
 // });
 
+
+// Slider
 const slider = tns({
     container: '.carousel__inner',
     items: 1,
@@ -54,6 +56,7 @@ document.querySelector('.next').addEventListener('click', function () {
     slider.goTo('next');
 });
 
+// Tabs, modals and form validation
 $(document).ready(function(){
     $('ul.catalog__tabs').on('click', 'li:not(.catalog__tab_active)', function() {
         $(this)
@@ -74,8 +77,8 @@ $(document).ready(function(){
     toggleSlide('.catalog-item__link');
     toggleSlide('.catalog-item__back');
 
-    // Modal
 
+    // Modal
     $('[data-modal=consultation]').on('click', function() {
         $('.overlay, #consultation').fadeIn('slow');
     });
@@ -90,8 +93,65 @@ $(document).ready(function(){
     $('.modal__close').on('click', function() {
         $('.overlay, #consultation, #order, #thanks').fadeOut('slow');
     });
+
+
+    // Forms
+    function validateForms(form) {
+        $(form).validate({
+            errorClass: 'error',
+            rules: {
+                name: 'required',
+                phone: 'required',
+                email: {
+                    required: true,
+                    email: true
+                } 
+            },
+            messages: {
+                name: "Пожалуйста, введите своё имя",
+                phone: "Пожалуйста, введите свой номер телефона",
+                email: {
+                  required: "Пожалуйста, введите свой email",
+                  email: "Неправильно введён email адрес"
+                }
+            }
+        });
+    };
+
+    validateForms('#consultation-form');
+    validateForms('#consultation form');
+    validateForms('#order form');
+
+
+    // Phone mask
+    $('input[name=phone]').mask("+38 (999) 999-99-99");
+
+
+    // Form ajax
+    $('form').submit(function(e) {
+        e.preventDefault();
+        const error = document.querySelectorAll('form .error');
+        let n = 0;
+        for(let i = 0; i < error.length; i++) {
+            if (window.getComputedStyle(error[i]).display === "none") {
+                n++;
+            };
+        };
+
+        if (n === error.length) {
+            $(this).find('input').val('');
+            $('#consultation, #order').fadeOut();
+            $('.overlay').fadeIn();
+            $('#thanks').fadeIn();
+            $('form').trigger('reset');
+        }
+
+        return false;
+    });
 });
 
+
+// Animation for info block in footer
 window.addEventListener('DOMContentLoaded', () => {
     const map = document.querySelector('.footer'),
     info = document.querySelector('.footer__info'); 
