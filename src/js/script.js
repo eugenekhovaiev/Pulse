@@ -58,16 +58,16 @@ document.querySelector('.next').addEventListener('click', function () {
 
 
 // Tabs, modals and form validation
-$(document).ready(function(){
-    $('ul.catalog__tabs').on('click', 'li:not(.catalog__tab_active)', function() {
+$(document).ready(function () {
+    $('ul.catalog__tabs').on('click', 'li:not(.catalog__tab_active)', function () {
         $(this)
             .addClass('catalog__tab_active').siblings().removeClass('catalog__tab_active')
             .closest('div.container').find('div.catalog__content').removeClass('catalog__content_active').eq($(this).index()).addClass('catalog__content_active');
     });
 
     function toggleSlide(item) {
-        $(item).each(function(i) {
-            $(this).on('click', function(e) {
+        $(item).each(function (i) {
+            $(this).on('click', function (e) {
                 e.preventDefault();
                 $('.catalog-item__content').eq(i).toggleClass('catalog-item__content_active');
                 $('.catalog-item__list').eq(i).toggleClass('catalog-item__list_active');
@@ -80,18 +80,18 @@ $(document).ready(function(){
 
 
     // Modal
-    $('[data-modal=consultation]').on('click', function() {
+    $('[data-modal=consultation]').on('click', function () {
         $('.overlay, #consultation').fadeIn('slow');
     });
-    
-    $('.button_mini').each(function(i) {
-        $(this).on('click', function() {
+
+    $('.button_mini').each(function (i) {
+        $(this).on('click', function () {
             $('#order .modal__descr').text($('.catalog-item__subtitle').eq(i).text());
             $('.overlay, #order').fadeIn('slow');
         });
     });
-        
-    $('.modal__close').on('click', function() {
+
+    $('.modal__close').on('click', function () {
         $('.overlay, #consultation, #order, #thanks').fadeOut('slow');
     });
 
@@ -106,14 +106,14 @@ $(document).ready(function(){
                 email: {
                     required: true,
                     email: true
-                } 
+                }
             },
             messages: {
                 name: "Пожалуйста, введите своё имя",
                 phone: "Пожалуйста, введите свой номер телефона",
                 email: {
-                  required: "Пожалуйста, введите свой email",
-                  email: "Неправильно введён email адрес"
+                    required: "Пожалуйста, введите свой email",
+                    email: "Неправильно введён email адрес"
                 }
             }
         });
@@ -129,11 +129,11 @@ $(document).ready(function(){
 
 
     // Form ajax
-    $('form').submit(function(e) {
+    $('form').submit(function (e) {
         e.preventDefault();
         const error = document.querySelectorAll('form .error');
         let n = 0;
-        for(let i = 0; i < error.length; i++) {
+        for (let i = 0; i < error.length; i++) {
             if (window.getComputedStyle(error[i]).display === "none") {
                 n++;
             };
@@ -152,7 +152,7 @@ $(document).ready(function(){
 
 
     // Smooth scroll pageup
-    $(window).scroll(function() {
+    $(window).scroll(function () {
         if ($(this).scrollTop() > 1600) {
             $('.pageup').fadeIn();
         } else {
@@ -160,24 +160,27 @@ $(document).ready(function(){
         };
     });
 
-    $("a[href=#up]").click(function(){
+    $("a[href=#up]").click(function () {
         const _href = $(this).attr("href");
-        $("html, body").animate({scrollTop: $(_href).offset().top+"px"});
+        $("html, body").animate({ scrollTop: $(_href).offset().top + "px" });
         return false;
     });
+
+    new WOW().init();
+
 });
 
 
 // Animation for info block in footer
 window.addEventListener('DOMContentLoaded', () => {
     const map = document.querySelector('.footer'),
-    info = document.querySelector('.footer__info'); 
+        info = document.querySelector('.footer__info');
     map.addEventListener('mouseenter', () => {
         if (window.screen.width >= 992) {
             info.style.cssText = 'transform: translateX(0); top: -26px; transform: scale(0.8); right: -46px;'
         }
     });
-    
+
     map.addEventListener('mouseleave', () => {
         info.style.cssText = ''
     });
