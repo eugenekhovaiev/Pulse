@@ -1,10 +1,8 @@
-.reviews {
-}
 .review {
     margin-bottom: 50px;
     display: flex;
-    justify-content: start;
-    align-items: start;
+    justify-content: flex-start;
+    align-items: flex-start;
 		// .review__photo
 		&__photo {
             display: block;
